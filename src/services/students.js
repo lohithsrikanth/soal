@@ -1,3 +1,6 @@
+import * as cohortsAPI from "./cohorts";
+0;
+
 const students = [
   {
     _id: "1",
@@ -6,6 +9,7 @@ const students = [
     email: "vishakagupta@gmail.com",
     phoneNumber: "9934213445",
     github: "github.com/vishakagupta",
+    linkedIn: "linked.com/vishakagupta",
     attendanceCount: 78,
     linesWritten: 1002,
     numberOfCommits: 25,
@@ -17,6 +21,7 @@ const students = [
     email: "himanshu.jain@gmail.com",
     phoneNumber: "9022455231",
     github: "github.com/himanshujain",
+    linkedIn: "linked.com/himanshujain",
     attendanceCount: 79,
     linesWritten: 1254,
     numberOfCommits: 52,
@@ -28,6 +33,7 @@ const students = [
     email: "aditya.prakash@gmail.com",
     phoneNumber: "8019133211",
     github: "github.com/adityaprakash",
+    linkedIn: "linked.com/adityaprakash",
     attendanceCount: 70,
     linesWritten: 900,
     numberOfCommits: 21,
@@ -39,6 +45,7 @@ const students = [
     email: "nikunj.agarwal@gmail.com",
     phoneNumber: "8029324334",
     github: "github.com/nikunjagarwal",
+    linkedIn: "linked.com/nikunjagarwal",
     attendanceCount: 69,
     linesWritten: 672,
     numberOfCommits: 10,
@@ -50,6 +57,7 @@ const students = [
     email: "deepanshsingh@gmail.com",
     phoneNumber: "9823243432",
     github: "github.com/deepanshsingh",
+    linkedIn: "linked.com/deepanshsingh",
     attendanceCount: 67,
     linesWritten: 1098,
     numberOfCommits: 27,
@@ -61,6 +69,7 @@ const students = [
     email: "yashwantreddy@gmail.com",
     phoneNumber: "8253293123",
     github: "github.com/yashwantreddy",
+    linkedIn: "linked.com/yashwantreddy",
     attendanceCount: 73,
     linesWritten: 892,
     numberOfCommits: 23,
@@ -72,6 +81,7 @@ const students = [
     email: "sanjanakumar@gmail.com",
     phoneNumber: "8800024223",
     github: "github.com/sanjanakumar",
+    linkedIn: "linked.com/sanjanakumar",
     attendanceCount: 80,
     linesWritten: 1200,
     numberOfCommits: 31,
@@ -83,6 +93,7 @@ const students = [
     email: "amankashyap@gmail.com",
     phoneNumber: "8827543291",
     github: "github.com/amankashyap",
+    linkedIn: "linked.com/amankashyap",
     attendanceCount: 80,
     linesWritten: 2891,
     numberOfCommits: 56,
@@ -94,6 +105,7 @@ const students = [
     email: "surajkrishnan@gmail.com",
     phoneNumber: "6987457620",
     github: "github.com/surajkrishnan",
+    linkedIn: "linked.com/surajkrishnan",
     attendanceCount: 80,
     linesWritten: 2763,
     numberOfCommits: 49,
@@ -105,6 +117,7 @@ const students = [
     email: "kavyasingh@gmail.com",
     phoneNumber: "8936475120",
     github: "github.com/kavyasingh",
+    linkedIn: "linked.com/kavyasingh",
     attendanceCount: 75,
     linesWritten: 1250,
     numberOfCommits: 39,
@@ -116,6 +129,7 @@ const students = [
     email: "pramodithgupta@gmail.com",
     phoneNumber: "8931752401",
     github: "github.com/pramodithgupta",
+    linkedIn: "linked.com/pramodithgupta",
     attendanceCount: 80,
     linesWritten: 2901,
     numberOfCommits: 62,
@@ -127,6 +141,7 @@ const students = [
     email: "subhanshusingh@gmail.com",
     phoneNumber: "7596358710",
     github: "github.com/subhanshusingh",
+    linkedIn: "linked.com/subhanshusingh",
     attendanceCount: 80,
     linesWritten: 3871,
     numberOfCommits: 88,
@@ -138,6 +153,7 @@ const students = [
     email: "rishabhmahajan@gmail.com",
     phoneNumber: "7985463120",
     github: "github.com/rishabhmahajan",
+    linkedIn: "linked.com/rishabhmahajan",
     attendanceCount: 79,
     linesWritten: 2003,
     numberOfCommits: 42,
@@ -149,6 +165,7 @@ const students = [
     email: "vishnudeva@gmail.com",
     phoneNumber: "7795236762",
     github: "github.com/vishnudeva",
+    linkedIn: "linked.com/vishnudeva",
     attendanceCount: 54,
     linesWritten: 892,
     numberOfCommits: 12,
@@ -160,6 +177,7 @@ const students = [
     email: "keshavgaba@gmail.com",
     phoneNumber: "9878700932",
     github: "github.com/keshavgaba",
+    linkedIn: "linked.com/keshavgaba",
     attendanceCount: 80,
     linesWritten: 1462,
     numberOfCommits: 31,
@@ -171,12 +189,13 @@ const students = [
     email: "ayushnag@gmail.com",
     phoneNumber: "8796523104",
     github: "github.com/ayushnag",
+    linkedIn: "linked.com/ayushnag",
     attendanceCount: 74,
     linesWritten: 1211,
     numberOfCommits: 29,
   },
 ];
-
+linkedIn: "linked.com/himanshujain",
 export function getStudents() {
   return students;
 }
@@ -188,8 +207,13 @@ export function getStudent(id) {
 export function saveStudent(student) {
   let studentInDb = students.find((s) => s._id === student._id) || {};
   studentInDb.name = student.name;
+  studentInDb.cohort = cohortsAPI.cohorts.find(
+    (c) => c._id === student.cohortId
+  );
   studentInDb.email = student.email;
   studentInDb.phoneNumber = student.phoneNumber;
+  studentInDb.github = student.github;
+  studentInDb.linkedIn = student.linkedIn;
   studentInDb.attendanceCount = student.attendanceCount;
   studentInDb.linesWritten = student.linesWritten;
   studentInDb.numberOfCommits = student.numberOfCommits;
