@@ -195,7 +195,7 @@ const students = [
     numberOfCommits: 29,
   },
 ];
-linkedIn: "linked.com/himanshujain",
+
 export function getStudents() {
   return students;
 }
