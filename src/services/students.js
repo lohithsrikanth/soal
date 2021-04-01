@@ -176,3 +176,28 @@ const students = [
     numberOfCommits: 29,
   },
 ];
+
+export function getStudents() {
+  return students;
+}
+
+export function getStudent(id) {
+  return students.find((student) => student.id === id);
+}
+
+export function saveStudent(student) {
+  let studentInDb = students.find((s) => s._id === student._id) || {};
+  studentInDb.name = student.name;
+  studentInDb.email = student.email;
+  studentInDb.phoneNumber = student.phoneNumber;
+  studentInDb.attendanceCount = student.attendanceCount;
+  studentInDb.linesWritten = student.linesWritten;
+  studentInDb.numberOfCommits = student.numberOfCommits;
+
+  if (!studentInDb._id) {
+    studentInDb._id = Date.now().toString();
+    students.push(studentInDb);
+  }
+
+  return studentInDb;
+}
