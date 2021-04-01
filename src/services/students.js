@@ -1,5 +1,4 @@
 import * as cohortsAPI from "./cohorts";
-0;
 
 const students = [
   {
