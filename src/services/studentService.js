@@ -1,4 +1,4 @@
-import * as cohortsAPI from "./cohorts";
+import * as cohortsAPI from "./cohortService";
 
 const students = [
   {
