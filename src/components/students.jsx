@@ -63,10 +63,13 @@ class Students extends Component {
   render() {
     return (
       <React.Fragment>
-        <table className="table">
-          {this.tableHeader()}
-          {this.tableBody()}
-        </table>
+        <div className="container">
+          <p>Showing {this.state.count} students in the database</p>
+          <table className="table">
+            {this.tableHeader()}
+            {this.tableBody()}
+          </table>
+        </div>
       </React.Fragment>
     );
   }
