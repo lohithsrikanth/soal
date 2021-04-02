@@ -16,6 +16,13 @@ class Students extends Component {
     this.setState({ students, count: students.length });
   }
 
+  handleDelete = (id) => {
+    const students = this.state.students.filter(
+      (student) => student._id !== id
+    );
+    this.setState({ students });
+  };
+
   tableHeader = () => {
     return (
       <thead>
@@ -30,10 +37,36 @@ class Students extends Component {
     );
   };
 
+  tableBody = () => {
+    return (
+      <tbody>
+        {this.state.students.map((student) => (
+          <tr key={student._id}>
+            <td>{student.name}</td>
+            <td>{student.cohort.name}</td>
+            <td>{student.email}</td>
+            <td>{student.phoneNumber}</td>
+            <td>
+              <button
+                className="btn btn-danger btn-sm"
+                onClick={() => this.handleDelete(student._id)}
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    );
+  };
+
   render() {
     return (
       <React.Fragment>
-        <table className="table">{this.tableHeader()}</table>
+        <table className="table">
+          {this.tableHeader()}
+          {this.tableBody()}
+        </table>
       </React.Fragment>
     );
   }
