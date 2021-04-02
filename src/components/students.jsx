@@ -67,7 +67,14 @@ class Students extends Component {
   };
 
   render() {
-    const { students, count, cohorts, sortColumn } = this.state;
+    const {
+      students,
+      count,
+      cohorts,
+      sortColumn,
+      pageSize,
+      currentPage,
+    } = this.state;
     return (
       <React.Fragment>
         <div className="container">
@@ -77,6 +84,12 @@ class Students extends Component {
             sortColumn={sortColumn}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
+          />
+          <Pagination
+            itemsCount={count}
+            pageSize={pageSize}
+            currentPage={currentPage}
+            onPageChange={this.handlePageChange}
           />
         </div>
       </React.Fragment>
