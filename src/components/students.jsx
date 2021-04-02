@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getStudents } from "../services/studentService";
+import StudentsTable from "./studentsTable";
 
 class Students extends Component {
   state = {
@@ -8,6 +9,7 @@ class Students extends Component {
     currentPage: 1,
     pageSize: 4,
     cohorts: [],
+    sortColumn: { path: "name", order: "asc" },
     selectedCohort: null,
   };
 
@@ -16,11 +18,15 @@ class Students extends Component {
     this.setState({ students, count: students.length });
   }
 
-  handleDelete = (id) => {
+  handleDelete = (s) => {
     const students = this.state.students.filter(
-      (student) => student._id !== id
+      (student) => student._id !== s._id
     );
     this.setState({ students });
+  };
+
+  handleSort = (sortColumn) => {
+    this.setState({ sortColumn });
   };
 
   tableHeader = () => {
@@ -61,14 +67,17 @@ class Students extends Component {
   };
 
   render() {
+    const { students, count, cohorts, sortColumn } = this.state;
     return (
       <React.Fragment>
         <div className="container">
-          <p>Showing {this.state.count} students in the database</p>
-          <table className="table">
-            {this.tableHeader()}
-            {this.tableBody()}
-          </table>
+          <p>Showing {this.state.count} students in the database.</p>
+          <StudentsTable
+            students={students}
+            sortColumn={sortColumn}
+            onDelete={this.handleDelete}
+            onSort={this.handleSort}
+          />
         </div>
       </React.Fragment>
     );
