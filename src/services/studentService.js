@@ -193,6 +193,30 @@ const students = [
     linesWritten: 1211,
     numberOfCommits: 29,
   },
+  {
+    _id: "17",
+    name: "Harleen Dhillon",
+    cohort: { _id: "3", name: "Zenith" },
+    email: "harleendhillon@gmail.com",
+    phoneNumber: "8549635710",
+    github: "github.com/harleendhillon",
+    linkedIn: "linked.com/harleendhillon",
+    attendanceCount: 62,
+    linesWritten: 900,
+    numberOfCommits: 22,
+  },
+  {
+    _id: "18",
+    name: "Prithvijit Ganguly",
+    cohort: { _id: "2", name: "Pinnacle" },
+    email: "prithvijitganguly@gmail.com",
+    phoneNumber: "7985469823",
+    github: "github.com/prithvijitganguly",
+    linkedIn: "linked.com/prithvijit ganguly",
+    attendanceCount: 65,
+    linesWritten: 1390,
+    numberOfCommits: 35,
+  },
 ];
 
 export function getStudents() {

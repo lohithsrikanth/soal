@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { getStudents } from "../services/studentService";
+import { paginate } from "../utils/paginate";
+import Pagination from "./common/pagination";
 import StudentsTable from "./studentsTable";
 
 class Students extends Component {
@@ -7,7 +9,7 @@ class Students extends Component {
     students: [],
     count: 0,
     currentPage: 1,
-    pageSize: 4,
+    pageSize: 5,
     cohorts: [],
     sortColumn: { path: "name", order: "asc" },
     selectedCohort: null,
@@ -29,52 +31,21 @@ class Students extends Component {
     this.setState({ sortColumn });
   };
 
-  tableHeader = () => {
-    return (
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Cohort</th>
-          <th>Email Address</th>
-          <th>Phone Number</th>
-          <th></th>
-        </tr>
-      </thead>
-    );
-  };
-
-  tableBody = () => {
-    return (
-      <tbody>
-        {this.state.students.map((student) => (
-          <tr key={student._id}>
-            <td>{student.name}</td>
-            <td>{student.cohort.name}</td>
-            <td>{student.email}</td>
-            <td>{student.phoneNumber}</td>
-            <td>
-              <button
-                className="btn btn-danger btn-sm"
-                onClick={() => this.handleDelete(student._id)}
-              >
-                Delete
-              </button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    );
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
   };
 
   render() {
     const {
-      students,
+      students: allStudents,
       count,
       cohorts,
       sortColumn,
       pageSize,
       currentPage,
     } = this.state;
+
+    const students = paginate(allStudents, currentPage, pageSize);
     return (
       <React.Fragment>
         <div className="container">
