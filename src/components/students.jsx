@@ -24,7 +24,7 @@ class Students extends Component {
     const students = this.state.students.filter(
       (student) => student._id !== s._id
     );
-    this.setState({ students });
+    this.setState({ students, count: students.length });
   };
 
   handleSort = (sortColumn) => {
@@ -49,7 +49,10 @@ class Students extends Component {
     return (
       <React.Fragment>
         <div className="container">
-          <p>Showing {this.state.count} students in the database.</p>
+          <p style={{ margin: 20 }}>
+            Showing {count > 1 ? count + " students" : count + " student"} in
+            the database
+          </p>
           <StudentsTable
             students={students}
             sortColumn={sortColumn}
