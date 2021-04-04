@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { getStudents } from "../services/studentService";
+import { getCohorts } from "../services/cohortService";
 import { paginate } from "../utils/paginate";
 import Pagination from "./common/pagination";
+import ListGroup from "./common/listgroup";
 import StudentsTable from "./studentsTable";
 
 class Students extends Component {
@@ -9,7 +11,7 @@ class Students extends Component {
     students: [],
     count: 0,
     currentPage: 1,
-    pageSize: 5,
+    pageSize: 4,
     cohorts: [],
     sortColumn: { path: "name", order: "asc" },
     selectedCohort: null,
@@ -17,7 +19,12 @@ class Students extends Component {
 
   componentDidMount() {
     const students = getStudents();
-    this.setState({ students, count: students.length });
+    const cohorts = [{ _id: "", name: "All Students" }, ...getCohorts()];
+    this.setState({
+      students,
+      cohorts,
+      count: students.length,
+    });
   }
 
   handleDelete = (s) => {
@@ -35,6 +42,10 @@ class Students extends Component {
     this.setState({ currentPage: page });
   };
 
+  handleCohortChange = (cohort) => {
+    this.setState({ selectedCohort: cohort, currentPage: 1 });
+  };
+
   render() {
     const {
       students: allStudents,
@@ -43,28 +54,46 @@ class Students extends Component {
       sortColumn,
       pageSize,
       currentPage,
+      selectedCohort,
     } = this.state;
 
-    const students = paginate(allStudents, currentPage, pageSize);
+    const filtered =
+      selectedCohort && selectedCohort._id
+        ? allStudents.filter((m) => m.cohort._id === selectedCohort._id)
+        : allStudents;
+
+    const students = paginate(filtered, currentPage, pageSize);
     return (
       <React.Fragment>
-        <div className="container">
-          <p style={{ margin: 20 }}>
-            Showing {count > 1 ? count + " students" : count + " student"} in
-            the database
-          </p>
-          <StudentsTable
-            students={students}
-            sortColumn={sortColumn}
-            onDelete={this.handleDelete}
-            onSort={this.handleSort}
-          />
-          <Pagination
-            itemsCount={count}
-            pageSize={pageSize}
-            currentPage={currentPage}
-            onPageChange={this.handlePageChange}
-          />
+        <div className="row">
+          <div className="col-3">
+            <ListGroup
+              items={cohorts}
+              selectedItem={selectedCohort}
+              onItemSelect={this.handleCohortChange}
+            />
+          </div>
+          <div className="col">
+            <p>
+              Showing
+              {filtered.length === 1
+                ? " " + filtered.length + " student "
+                : " " + filtered.length + " students "}
+              in the database
+            </p>
+            <StudentsTable
+              students={students}
+              sortColumn={sortColumn}
+              onDelete={this.handleDelete}
+              onSort={this.handleSort}
+            />
+            <Pagination
+              itemsCount={filtered.length}
+              pageSize={pageSize}
+              currentPage={currentPage}
+              onPageChange={this.handlePageChange}
+            />
+          </div>
         </div>
       </React.Fragment>
     );
