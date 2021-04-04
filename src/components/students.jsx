@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 import { getStudents } from "../services/studentService";
 import { getCohorts } from "../services/cohortService";
 import { paginate } from "../utils/paginate";
@@ -49,7 +50,6 @@ class Students extends Component {
   render() {
     const {
       students: allStudents,
-      count,
       cohorts,
       sortColumn,
       pageSize,
@@ -62,7 +62,9 @@ class Students extends Component {
         ? allStudents.filter((m) => m.cohort._id === selectedCohort._id)
         : allStudents;
 
-    const students = paginate(filtered, currentPage, pageSize);
+    const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
+
+    const students = paginate(sorted, currentPage, pageSize);
     return (
       <React.Fragment>
         <div className="row">
