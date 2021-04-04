@@ -5,6 +5,7 @@ import { getCohorts } from "../services/cohortService";
 import { paginate } from "../utils/paginate";
 import Pagination from "./common/pagination";
 import ListGroup from "./common/listgroup";
+import Search from "./common/search";
 import StudentsTable from "./studentsTable";
 
 class Students extends Component {
@@ -16,6 +17,7 @@ class Students extends Component {
     cohorts: [],
     sortColumn: { path: "name", order: "asc" },
     selectedCohort: null,
+    searchQuery: "",
   };
 
   componentDidMount() {
@@ -25,6 +27,7 @@ class Students extends Component {
       students,
       cohorts,
       count: students.length,
+      selectedCohort: cohorts[0],
     });
   }
 
@@ -44,9 +47,16 @@ class Students extends Component {
   };
 
   handleCohortChange = (cohort) => {
-    this.setState({ selectedCohort: cohort, currentPage: 1 });
+    this.setState({ selectedCohort: cohort, searchQuery: "", currentPage: 1 });
   };
 
+  handleSearch = (query) => {
+    this.setState({
+      searchQuery: query,
+      selectedGenre: null,
+      currentPage: 1,
+    });
+  };
   render() {
     const {
       students: allStudents,
@@ -55,12 +65,16 @@ class Students extends Component {
       pageSize,
       currentPage,
       selectedCohort,
+      searchQuery,
     } = this.state;
 
-    const filtered =
-      selectedCohort && selectedCohort._id
-        ? allStudents.filter((m) => m.cohort._id === selectedCohort._id)
-        : allStudents;
+    let filtered = allStudents;
+    if (searchQuery) {
+      filtered = allStudents.filter((s) =>
+        s.name.toLowerCase().startsWith(searchQuery.toLowerCase())
+      );
+    } else if (selectedCohort && selectedCohort._id)
+      filtered = allStudents.filter((s) => s.cohort._id === selectedCohort._id);
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
@@ -83,6 +97,7 @@ class Students extends Component {
                 : " " + filtered.length + " students "}
               in the database
             </p>
+            <Search onChange={this.handleSearch} />
             <StudentsTable
               students={students}
               sortColumn={sortColumn}
