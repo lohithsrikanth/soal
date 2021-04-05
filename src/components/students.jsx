@@ -47,25 +47,29 @@ class Students extends Component {
   };
 
   handleCohortChange = (cohort) => {
-    this.setState({ selectedCohort: cohort, searchQuery: "", currentPage: 1 });
+    this.setState({
+      selectedCohort: cohort,
+      searchQuery: null,
+      currentPage: 1,
+    });
   };
 
   handleSearch = (query) => {
     this.setState({
       searchQuery: query,
-      selectedGenre: null,
+      selectedCohort: null,
       currentPage: 1,
     });
   };
-  render() {
+
+  getPagedData = () => {
     const {
       students: allStudents,
-      cohorts,
       sortColumn,
       pageSize,
       currentPage,
-      selectedCohort,
       searchQuery,
+      selectedCohort,
     } = this.state;
 
     let filtered = allStudents;
@@ -79,6 +83,20 @@ class Students extends Component {
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
     const students = paginate(sorted, currentPage, pageSize);
+
+    return { totalCount: filtered.length, data: students };
+  };
+  render() {
+    const {
+      cohorts,
+      sortColumn,
+      pageSize,
+      currentPage,
+      selectedCohort,
+      searchQuery,
+    } = this.state;
+
+    const { totalCount, data: students } = this.getPagedData();
     return (
       <React.Fragment>
         <div className="row">
@@ -92,9 +110,9 @@ class Students extends Component {
           <div className="col">
             <p>
               Showing
-              {filtered.length === 1
-                ? " " + filtered.length + " student "
-                : " " + filtered.length + " students "}
+              {totalCount === 1
+                ? " " + totalCount + " student "
+                : " " + totalCount + " students "}
               in the database
             </p>
             <Search onChange={this.handleSearch} />
@@ -105,7 +123,7 @@ class Students extends Component {
               onSort={this.handleSort}
             />
             <Pagination
-              itemsCount={filtered.length}
+              itemsCount={totalCount}
               pageSize={pageSize}
               currentPage={currentPage}
               onPageChange={this.handlePageChange}
