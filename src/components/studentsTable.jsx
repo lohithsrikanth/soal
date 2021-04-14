@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Table from "./common/table";
 
 class StudentsTable extends Component {
@@ -6,6 +7,9 @@ class StudentsTable extends Component {
     {
       path: "name",
       label: "Name",
+      content: (student) => (
+        <Link to={`/students/${student._id}`}>{student.name}</Link>
+      ),
     },
     {
       path: "cohort.name",
