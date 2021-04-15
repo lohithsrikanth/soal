@@ -9,9 +9,6 @@ const students = [
     phoneNumber: "9934213445",
     github: "github.com/vishakagupta",
     linkedIn: "linkedin.com/vishakagupta",
-    // attendanceCount: 78,
-    // linesWritten: 1002,
-    // numberOfCommits: 25,
     attendance: [
       { name: "Classes Attended in January", value: 15 },
       { name: "Classes Missed in January", value: 5 },
