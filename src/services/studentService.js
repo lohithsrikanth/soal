@@ -385,18 +385,18 @@ function numberOfCommitsTemplate() {
   const template = [
     {
       name: "January",
-      "Number of Commits": null,
-      "Average Number of Commits": null,
+      "Number of Commits Made": null,
+      "Average Number of Commits Made": null,
     },
     {
       name: "February",
-      "Number of Commits": null,
-      "Average Number of Commits": null,
+      "Number of Commits Made": null,
+      "Average Number of Commits Made": null,
     },
     {
       name: "March",
-      "Number of Commits": null,
-      "Average Number of Commits": null,
+      "Number of Commits Made": null,
+      "Average Number of Commits Made": null,
     },
   ];
   return template;
@@ -442,23 +442,23 @@ export function populateCommits(students) {
     avg3 = 0;
   Array.from(students).forEach((student) =>
     Array.from(student.numberOfCommits).forEach((s) => {
-      s["Number of Commits"] = getRndInteger(20, 150);
-      if (s.name === "January") sum1 += s["Number of Commits"];
-      else if (s.name === "February") sum2 += s["Number of Commits"];
-      else if (s.name === "March") sum3 += s["Number of Commits"];
+      s["Number of Commits Made"] = getRndInteger(20, 150);
+      if (s.name === "January") sum1 += s["Number of Commits Made"];
+      else if (s.name === "February") sum2 += s["Number of Commits Made"];
+      else if (s.name === "March") sum3 += s["Number of Commits Made"];
     })
   );
   Array.from(students).forEach((student) =>
     Array.from(student.numberOfCommits).forEach((s) => {
       if (s.name === "January") {
         avg1 = Math.round(sum1 / students.length);
-        s["Average Number of Commits"] = avg1;
+        s["Average Number of Commits Made"] = avg1;
       } else if (s.name === "February") {
         avg2 = Math.round(sum2 / students.length);
-        s["Average Number of Commits"] = avg2;
+        s["Average Number of Commits Made"] = avg2;
       } else if (s.name === "March") {
         avg3 = Math.round(sum3 / students.length);
-        s["Average Number of Commits"] = avg3;
+        s["Average Number of Commits Made"] = avg3;
       }
     })
   );
