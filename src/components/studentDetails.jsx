@@ -1,15 +1,23 @@
 import React, { Component } from "react";
-import { getStudents } from "../services/studentService";
+import {
+  getStudents,
+  populateLinesWritten,
+  populateCommits,
+  totalClassesHeld,
+} from "../services/studentService";
 
 class StudentDetails extends Component {
   getStudentData = () => {
-    const students = getStudents();
+    let students = getStudents();
+    populateLinesWritten(students);
+    populateCommits(students);
     const id = this.props.match.params.id;
     const student = students.filter((s) => s._id === id)[0];
     return student;
   };
   render() {
     const student = this.getStudentData();
+    console.log(student);
     return (
       <React.Fragment>
         <h1>Student Details</h1>
