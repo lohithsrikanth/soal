@@ -8,10 +8,20 @@ const students = [
     email: "vishakagupta@gmail.com",
     phoneNumber: "9934213445",
     github: "github.com/vishakagupta",
-    linkedIn: "linked.com/vishakagupta",
-    attendanceCount: 78,
-    linesWritten: 1002,
-    numberOfCommits: 25,
+    linkedIn: "linkedin.com/vishakagupta",
+    // attendanceCount: 78,
+    // linesWritten: 1002,
+    // numberOfCommits: 25,
+    attendance: [
+      { name: "Classes Attended in January", value: 15 },
+      { name: "Classes Missed in January", value: 5 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "2",
@@ -20,10 +30,17 @@ const students = [
     email: "himanshu.jain@gmail.com",
     phoneNumber: "9022455231",
     github: "github.com/himanshujain",
-    linkedIn: "linked.com/himanshujain",
-    attendanceCount: 79,
-    linesWritten: 1254,
-    numberOfCommits: 52,
+    linkedIn: "linkedin.com/himanshujain",
+    attendance: [
+      { name: "Classes Attended in January", value: 14 },
+      { name: "Classes Missed in January", value: 6 },
+      { name: "Classes Attended in February", value: 16 },
+      { name: "Classes Missed in February", value: 4 },
+      { name: "Classes Attended in March", value: 19 },
+      { name: "Classes Missed in March", value: 6 },
+    ],
+    linesWritten: linesWrittenTemplate,
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "3",
@@ -32,10 +49,17 @@ const students = [
     email: "aditya.prakash@gmail.com",
     phoneNumber: "8019133211",
     github: "github.com/adityaprakash",
-    linkedIn: "linked.com/adityaprakash",
-    attendanceCount: 70,
-    linesWritten: 900,
-    numberOfCommits: 21,
+    linkedIn: "linkedin.com/adityaprakash",
+    attendance: [
+      { name: "Classes Attended in January", value: 12 },
+      { name: "Classes Missed in January", value: 8 },
+      { name: "Classes Attended in February", value: 15 },
+      { name: "Classes Missed in February", value: 5 },
+      { name: "Classes Attended in March", value: 22 },
+      { name: "Classes Missed in March", value: 3 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "4",
@@ -44,10 +68,17 @@ const students = [
     email: "nikunj.agarwal@gmail.com",
     phoneNumber: "8029324334",
     github: "github.com/nikunjagarwal",
-    linkedIn: "linked.com/nikunjagarwal",
-    attendanceCount: 69,
-    linesWritten: 672,
-    numberOfCommits: 10,
+    linkedIn: "linkedin.com/nikunjagarwal",
+    attendance: [
+      { name: "Classes Attended in January", value: 13 },
+      { name: "Classes Missed in January", value: 7 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "5",
@@ -56,10 +87,17 @@ const students = [
     email: "deepanshsingh@gmail.com",
     phoneNumber: "9823243432",
     github: "github.com/deepanshsingh",
-    linkedIn: "linked.com/deepanshsingh",
-    attendanceCount: 67,
-    linesWritten: 1098,
-    numberOfCommits: 27,
+    linkedIn: "linkedin.com/deepanshsingh",
+    attendance: [
+      { name: "Classes Attended in January", value: 15 },
+      { name: "Classes Missed in January", value: 5 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "6",
@@ -68,10 +106,17 @@ const students = [
     email: "yashwantreddy@gmail.com",
     phoneNumber: "8253293123",
     github: "github.com/yashwantreddy",
-    linkedIn: "linked.com/yashwantreddy",
-    attendanceCount: 73,
-    linesWritten: 892,
-    numberOfCommits: 23,
+    linkedIn: "linkedin.com/yashwantreddy",
+    attendance: [
+      { name: "Classes Attended in January", value: 13 },
+      { name: "Classes Missed in January", value: 7 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "7",
@@ -80,10 +125,17 @@ const students = [
     email: "sanjanakumar@gmail.com",
     phoneNumber: "8800024223",
     github: "github.com/sanjanakumar",
-    linkedIn: "linked.com/sanjanakumar",
-    attendanceCount: 80,
-    linesWritten: 1200,
-    numberOfCommits: 31,
+    linkedIn: "linkedin.com/sanjanakumar",
+    attendance: [
+      { name: "Classes Attended in January", value: 20 },
+      { name: "Classes Missed in January", value: 0 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "8",
@@ -92,10 +144,17 @@ const students = [
     email: "amankashyap@gmail.com",
     phoneNumber: "8827543291",
     github: "github.com/amankashyap",
-    linkedIn: "linked.com/amankashyap",
-    attendanceCount: 80,
-    linesWritten: 2891,
-    numberOfCommits: 56,
+    linkedIn: "linkedin.com/amankashyap",
+    attendance: [
+      { name: "Classes Attended in January", value: 20 },
+      { name: "Classes Missed in January", value: 5 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 25 },
+      { name: "Classes Missed in March", value: 0 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "9",
@@ -104,10 +163,17 @@ const students = [
     email: "surajkrishnan@gmail.com",
     phoneNumber: "6987457620",
     github: "github.com/surajkrishnan",
-    linkedIn: "linked.com/surajkrishnan",
-    attendanceCount: 80,
-    linesWritten: 2763,
-    numberOfCommits: 49,
+    linkedIn: "linkedin.com/surajkrishnan",
+    attendance: [
+      { name: "Classes Attended in January", value: 16 },
+      { name: "Classes Missed in January", value: 4 },
+      { name: "Classes Attended in February", value: 18 },
+      { name: "Classes Missed in February", value: 2 },
+      { name: "Classes Attended in March", value: 23 },
+      { name: "Classes Missed in March", value: 2 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "10",
@@ -116,10 +182,17 @@ const students = [
     email: "kavyasingh@gmail.com",
     phoneNumber: "8936475120",
     github: "github.com/kavyasingh",
-    linkedIn: "linked.com/kavyasingh",
-    attendanceCount: 75,
-    linesWritten: 1250,
-    numberOfCommits: 39,
+    linkedIn: "linkedin.com/kavyasingh",
+    attendance: [
+      { name: "Classes Attended in January", value: 13 },
+      { name: "Classes Missed in January", value: 7 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "11",
@@ -128,10 +201,17 @@ const students = [
     email: "pramodithgupta@gmail.com",
     phoneNumber: "8931752401",
     github: "github.com/pramodithgupta",
-    linkedIn: "linked.com/pramodithgupta",
-    attendanceCount: 80,
-    linesWritten: 2901,
-    numberOfCommits: 62,
+    linkedIn: "linkedin.com/pramodithgupta",
+    attendance: [
+      { name: "Classes Attended in January", value: 20 },
+      { name: "Classes Missed in January", value: 0 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "12",
@@ -140,10 +220,17 @@ const students = [
     email: "subhanshusingh@gmail.com",
     phoneNumber: "7596358710",
     github: "github.com/subhanshusingh",
-    linkedIn: "linked.com/subhanshusingh",
-    attendanceCount: 80,
-    linesWritten: 3871,
-    numberOfCommits: 88,
+    linkedIn: "linkedin.com/subhanshusingh",
+    attendance: [
+      { name: "Classes Attended in January", value: 20 },
+      { name: "Classes Missed in January", value: 0 },
+      { name: "Classes Attended in February", value: 20 },
+      { name: "Classes Missed in February", value: 0 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "13",
@@ -152,10 +239,17 @@ const students = [
     email: "rishabhmahajan@gmail.com",
     phoneNumber: "7985463120",
     github: "github.com/rishabhmahajan",
-    linkedIn: "linked.com/rishabhmahajan",
-    attendanceCount: 79,
-    linesWritten: 2003,
-    numberOfCommits: 42,
+    linkedIn: "linkedin.com/rishabhmahajan",
+    attendance: [
+      { name: "Classes Attended in January", value: 18 },
+      { name: "Classes Missed in January", value: 2 },
+      { name: "Classes Attended in February", value: 16 },
+      { name: "Classes Missed in February", value: 4 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "14",
@@ -164,10 +258,17 @@ const students = [
     email: "vishnudeva@gmail.com",
     phoneNumber: "7795236762",
     github: "github.com/vishnudeva",
-    linkedIn: "linked.com/vishnudeva",
-    attendanceCount: 54,
-    linesWritten: 892,
-    numberOfCommits: 12,
+    linkedIn: "linkedin.com/vishnudeva",
+    attendance: [
+      { name: "Classes Attended in January", value: 10 },
+      { name: "Classes Missed in January", value: 10 },
+      { name: "Classes Attended in February", value: 13 },
+      { name: "Classes Missed in February", value: 7 },
+      { name: "Classes Attended in March", value: 21 },
+      { name: "Classes Missed in March", value: 4 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "15",
@@ -176,10 +277,17 @@ const students = [
     email: "keshavgaba@gmail.com",
     phoneNumber: "9878700932",
     github: "github.com/keshavgaba",
-    linkedIn: "linked.com/keshavgaba",
-    attendanceCount: 80,
-    linesWritten: 1462,
-    numberOfCommits: 31,
+    linkedIn: "linkedin.com/keshavgaba",
+    attendance: [
+      { name: "Classes Attended in January", value: 20 },
+      { name: "Classes Missed in January", value: 0 },
+      { name: "Classes Attended in February", value: 18 },
+      { name: "Classes Missed in February", value: 2 },
+      { name: "Classes Attended in March", value: 23 },
+      { name: "Classes Missed in March", value: 2 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "16",
@@ -188,10 +296,17 @@ const students = [
     email: "ayushnag@gmail.com",
     phoneNumber: "8796523104",
     github: "github.com/ayushnag",
-    linkedIn: "linked.com/ayushnag",
-    attendanceCount: 74,
-    linesWritten: 1211,
-    numberOfCommits: 29,
+    linkedIn: "linkedin.com/ayushnag",
+    attendance: [
+      { name: "Classes Attended in January", value: 16 },
+      { name: "Classes Missed in January", value: 4 },
+      { name: "Classes Attended in February", value: 17 },
+      { name: "Classes Missed in February", value: 3 },
+      { name: "Classes Attended in March", value: 19 },
+      { name: "Classes Missed in March", value: 6 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "17",
@@ -201,9 +316,16 @@ const students = [
     phoneNumber: "8549635710",
     github: "github.com/harleendhillon",
     linkedIn: "linked.com/harleendhillon",
-    attendanceCount: 62,
-    linesWritten: 900,
-    numberOfCommits: 22,
+    attendance: [
+      { name: "Classes Attended in January", value: 18 },
+      { name: "Classes Missed in January", value: 2 },
+      { name: "Classes Attended in February", value: 19 },
+      { name: "Classes Missed in February", value: 1 },
+      { name: "Classes Attended in March", value: 22 },
+      { name: "Classes Missed in March", value: 3 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
   {
     _id: "18",
@@ -213,9 +335,16 @@ const students = [
     phoneNumber: "7985469823",
     github: "github.com/prithvijitganguly",
     linkedIn: "linked.com/prithvijit ganguly",
-    attendanceCount: 65,
-    linesWritten: 1390,
-    numberOfCommits: 35,
+    attendance: [
+      { name: "Classes Attended in January", value: 17 },
+      { name: "Classes Missed in January", value: 3 },
+      { name: "Classes Attended in February", value: 15 },
+      { name: "Classes Missed in February", value: 5 },
+      { name: "Classes Attended in March", value: 20 },
+      { name: "Classes Missed in March", value: 5 },
+    ],
+    linesWritten: linesWrittenTemplate(),
+    numberOfCommits: numberOfCommitsTemplate(),
   },
 ];
 
@@ -227,24 +356,119 @@ export function getStudent(id) {
   return students.find((student) => student.id === id);
 }
 
-export function saveStudent(student) {
-  let studentInDb = students.find((s) => s._id === student._id) || {};
-  studentInDb.name = student.name;
-  studentInDb.cohort = cohortsAPI.cohorts.find(
-    (c) => c._id === student.cohortId
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function linesWrittenTemplate() {
+  const template = [
+    {
+      name: "January",
+      "Number of Lines Written": null,
+      "Average Number of Lines Written": null,
+    },
+    {
+      name: "February",
+      "Number of Lines Written": null,
+      "Average Number of Lines Written": null,
+    },
+    {
+      name: "March",
+      "Number of Lines Written": null,
+      "Average Number of Lines Written": null,
+    },
+  ];
+  return template;
+}
+
+function numberOfCommitsTemplate() {
+  const template = [
+    {
+      name: "January",
+      "Number of Commits": null,
+      "Average Number of Commits": null,
+    },
+    {
+      name: "February",
+      "Number of Commits": null,
+      "Average Number of Commits": null,
+    },
+    {
+      name: "March",
+      "Number of Commits": null,
+      "Average Number of Commits": null,
+    },
+  ];
+  return template;
+}
+
+export function populateLinesWritten(students) {
+  let sum1 = 0,
+    sum2 = 0,
+    sum3 = 0,
+    avg1 = 0,
+    avg2 = 0,
+    avg3 = 0;
+  Array.from(students).forEach((student) =>
+    Array.from(student.linesWritten).forEach((s) => {
+      s["Number of Lines Written"] = getRndInteger(500, 2000);
+      if (s.name === "January") sum1 += s["Number of Lines Written"];
+      else if (s.name === "February") sum2 += s["Number of Lines Written"];
+      else if (s.name === "March") sum3 += s["Number of Lines Written"];
+    })
   );
-  studentInDb.email = student.email;
-  studentInDb.phoneNumber = student.phoneNumber;
-  studentInDb.github = student.github;
-  studentInDb.linkedIn = student.linkedIn;
-  studentInDb.attendanceCount = student.attendanceCount;
-  studentInDb.linesWritten = student.linesWritten;
-  studentInDb.numberOfCommits = student.numberOfCommits;
+  Array.from(students).forEach((student) =>
+    Array.from(student.linesWritten).forEach((s) => {
+      if (s.name === "January") {
+        avg1 = Math.round(sum1 / students.length);
+        s["Average Number of Lines Written"] = avg1;
+      } else if (s.name === "February") {
+        avg2 = Math.round(sum2 / students.length);
+        s["Average Number of Lines Written"] = avg2;
+      } else if (s.name === "March") {
+        avg3 = Math.round(sum3 / students.length);
+        s["Average Number of Lines Written"] = avg3;
+      }
+    })
+  );
+}
 
-  if (!studentInDb._id) {
-    studentInDb._id = Date.now().toString();
-    students.push(studentInDb);
-  }
+export function populateCommits(students) {
+  let sum1 = 0,
+    sum2 = 0,
+    sum3 = 0,
+    avg1 = 0,
+    avg2 = 0,
+    avg3 = 0;
+  Array.from(students).forEach((student) =>
+    Array.from(student.numberOfCommits).forEach((s) => {
+      s["Number of Commits"] = getRndInteger(20, 150);
+      if (s.name === "January") sum1 += s["Number of Commits"];
+      else if (s.name === "February") sum2 += s["Number of Commits"];
+      else if (s.name === "March") sum3 += s["Number of Commits"];
+    })
+  );
+  Array.from(students).forEach((student) =>
+    Array.from(student.numberOfCommits).forEach((s) => {
+      if (s.name === "January") {
+        avg1 = Math.round(sum1 / students.length);
+        s["Average Number of Commits"] = avg1;
+      } else if (s.name === "February") {
+        avg2 = Math.round(sum2 / students.length);
+        s["Average Number of Commits"] = avg2;
+      } else if (s.name === "March") {
+        avg3 = Math.round(sum3 / students.length);
+        s["Average Number of Commits"] = avg3;
+      }
+    })
+  );
+}
 
-  return studentInDb;
+export function totalClassesHeld() {
+  const classes = [
+    { name: "Classes Held in January", value: 20 },
+    { name: "Classes Held in February", value: 20 },
+    { name: "Classes Held in March", value: 25 },
+  ];
+  return classes;
 }
