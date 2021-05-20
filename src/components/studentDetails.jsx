@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import PieRepresentation from "../charts/PieChart";
 import BarRepresentation from "../charts/BarChart";
 import {
@@ -33,9 +34,14 @@ class StudentDetails extends Component {
     const student = students.filter((s) => s._id === id)[0];
     return student;
   };
+
   render() {
     const student = this.getStudentData();
     const classesHeld = totalClassesHeld();
+    const id = this.props.match.params.id;
+    if (id < 0 || id > getStudents().length) {
+      return <Redirect to="/not-found" />;
+    }
     return (
       <React.Fragment>
         <h1 style={{ textAlign: "center", fontWeight: "bold" }}>
