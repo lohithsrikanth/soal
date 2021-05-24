@@ -36,7 +36,7 @@ const students = [
       { name: "Classes Attended in March", value: 19 },
       { name: "Classes Missed in March", value: 6 },
     ],
-    linesWritten: linesWrittenTemplate,
+    linesWritten: linesWrittenTemplate(),
     numberOfCommits: numberOfCommitsTemplate(),
   },
   {
