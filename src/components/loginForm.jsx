@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Joi from "joi-browser";
 import Form from "./common/form";
 import { connect } from "react-redux";
-import { login, getUser } from "../store/users";
+import { login } from "../store/users";
 
 class LoginForm extends Form {
   state = {
