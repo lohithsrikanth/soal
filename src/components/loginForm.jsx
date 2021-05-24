@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Input from "./common/input";
-import Form from "./common/form";
 import Joi from "joi-browser";
+import Form from "./common/form";
+import { connect } from "react-redux";
+import { login, getUser } from "../store/users";
 
 class LoginForm extends Form {
   state = {
@@ -15,11 +16,12 @@ class LoginForm extends Form {
   };
 
   doSubmit = () => {
-    console.log("Submitted");
+    const { username, password } = this.state.data;
+    this.props.login(username, password);
+    this.props.history.replace("/");
   };
 
   render() {
-    const { data, errors } = this.state;
     return (
       <div>
         <h1>Login</h1>
@@ -33,4 +35,8 @@ class LoginForm extends Form {
   }
 }
 
-export default LoginForm;
+const mapDispatchToProps = (dispatch) => ({
+  login: (username, password) => dispatch(login({ username, password })),
+});
+
+export default connect(null, mapDispatchToProps)(LoginForm);
