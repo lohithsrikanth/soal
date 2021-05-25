@@ -8,13 +8,15 @@ const slice = createSlice({
   reducers: {
     login: (state, action) => {
       state.user = action.payload;
+      localStorage.setItem("username", action.payload.username);
     },
     logout: (state) => {
       state.user = null;
+      localStorage.removeItem("username");
     },
   },
 });
 
-export const getUser = (state) => state.users.user;
+export const getUser = () => localStorage.getItem("username");
 export const { login, logout } = slice.actions;
 export default slice.reducer;
