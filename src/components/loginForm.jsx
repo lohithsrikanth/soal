@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Joi from "joi-browser";
+import { Redirect } from "react-router-dom";
 import Form from "./common/form";
 import { connect } from "react-redux";
-import { login } from "../store/users";
+import { login, getUser } from "../store/users";
 
 class LoginForm extends Form {
   state = {
@@ -18,10 +19,11 @@ class LoginForm extends Form {
   doSubmit = () => {
     const { username, password } = this.state.data;
     this.props.login(username, password);
-    this.props.history.replace("/");
+    window.location = "/";
   };
 
   render() {
+    if (getUser()) return <Redirect to="/" />;
     return (
       <div>
         <h1>Login</h1>
