@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-import { logout, getUser } from "../../store/users";
+import { getUser } from "../../store/users";
 
-const Navbar = ({ user }) => {
+const user = getUser();
+
+const Navbar = () => {
   return (
     <nav
       className="navbar navbar-expand-lg navbar-light bg-light"
@@ -55,10 +56,10 @@ const Navbar = ({ user }) => {
         </ul>
         {user && (
           <span
-            style={{ marginLeft: 700, color: "black" }}
+            style={{ marginLeft: 650, color: "black" }}
             className="navbar-text"
           >
-            Hello, {user.username}
+            Hello, {user}
           </span>
         )}
       </div>
@@ -66,8 +67,4 @@ const Navbar = ({ user }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  user: getUser(state),
-});
-
-export default connect(mapStateToProps)(Navbar);
+export default Navbar;
