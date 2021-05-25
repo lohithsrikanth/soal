@@ -5,21 +5,12 @@ import { logout } from "../store/users";
 class Logout extends Component {
   componentDidMount() {
     this.props.logout();
+
+    window.location = "/";
   }
 
-  handleClick = () => {
-    this.props.history.replace("/students");
-  };
-
   render() {
-    return (
-      <div>
-        <p>You have been logged out!</p>
-        <button className="btn btn-primary btn-sm" onClick={this.handleClick}>
-          Go Back to Students Page
-        </button>
-      </div>
-    );
+    return null;
   }
 }
 
