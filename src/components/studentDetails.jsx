@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { getUser } from "../store/users";
 import PieRepresentation from "../charts/PieChart";
 import BarRepresentation from "../charts/BarChart";
 import {
@@ -25,6 +26,9 @@ const lineStyle = {
   color: "gray",
   backgroundColor: "gray",
 };
+
+const user = getUser();
+
 class StudentDetails extends Component {
   getStudentData = () => {
     let students = getStudents();
@@ -39,9 +43,14 @@ class StudentDetails extends Component {
     const student = this.getStudentData();
     const classesHeld = totalClassesHeld();
     const id = this.props.match.params.id;
+    if (!user) {
+      return <Redirect to="/login" />;
+    }
+
     if (id < 0 || id > getStudents().length) {
       return <Redirect to="/not-found" />;
     }
+
     return (
       <React.Fragment>
         <h1 style={{ textAlign: "center", fontWeight: "bold" }}>
