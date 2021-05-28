@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Table from "./common/table";
+import { getUser } from "../store/users";
 
+const user = getUser();
 class StudentsTable extends Component {
   columns = [
     {
@@ -27,12 +29,14 @@ class StudentsTable extends Component {
       key: "delete",
       content: (m) => {
         return (
-          <button
-            className="btn btn-danger btn-sm"
-            onClick={() => this.props.onDelete(m)}
-          >
-            Delete
-          </button>
+          user && (
+            <button
+              className="btn btn-danger btn-sm"
+              onClick={() => this.props.onDelete(m)}
+            >
+              Delete
+            </button>
+          )
         );
       },
     },

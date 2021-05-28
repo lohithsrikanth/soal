@@ -81,7 +81,7 @@ class StudentDetails extends Component {
           </li>
         </ul>
         <hr style={lineStyle} />
-        <h2 style={{ textAlign: "center", fontWeight: "bold" }}>Stats</h2>
+        <h2 style={{ textAlign: "center", fontWeight: "bold" }}>Statistics</h2>
         <hr />
         <div style={{ margin: 0 }}>
           <h3>
