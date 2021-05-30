@@ -7,6 +7,7 @@ const Input = (props) => {
       <div className="form-group">
         <label htmlFor={name}>{label}</label>
         <input
+          data-testid="first"
           {...rest}
           name={name}
           id={name}
