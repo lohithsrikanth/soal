@@ -47,7 +47,7 @@ class StudentDetails extends Component {
       return <Redirect to="/login" />;
     }
 
-    if (id < 0 || id > getStudents().length) {
+    if (id < 0 || id > getStudents().length || typeof id === "string") {
       return <Redirect to="/not-found" />;
     }
 
