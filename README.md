@@ -8,6 +8,8 @@ Also, only after the user is logged will they have the ability to delete a stude
 
 The user also has the ability to search for a student by typing inside the search box.
 
+NOTE: The username and password can be any arbitrary values
+
 ## Packages Used
 
 The following packages have been used for creating this project:
